@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Messages | Firebase</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./styles.css">
 </head>
-
 <body>
-    <div class="container">
-        <form action="" id="contactForm">
-            <div class="alert">Your message sent</div>
+    <section class="section">
+        <div class="container">
+            <!-- Responsive table container -->
+            <div class="table-container">
+                <table class="table is-striped is-hoverable is-fullwidth">
 
-            <div class="inputBox">
-                <input type="text" id="name" placeholder="Your name...." />
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesList">
+
+                    </tbody>
+                </table>
             </div>
+        </div>
 
-            <div class="inputBox">
-                <input type="email" id="emailid" placeholder="Your Email....." />
-            </div>
+        <div class="container">
+            <!-- Form for submitting new messages -->
+            <form action="" id="contactForm">
+                <article class="message is-info">
+                    <div class="message-body">
+                        Your message has been sent
+                    </div>
+                </article>
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" id="name" placeholder="Your name....">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="email" id="emailid" placeholder="Your Email.....">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Message</label>
+                    <div class="control">
+                        <textarea class="textarea" id="msgContent" placeholder="Message"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Date</label>
+                    <div class="control">
+                        <input class="input" type="date" id="date">
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-link" id="submit-button">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 
-            <div class="inputBox">
-                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
-            </div>
-
-
-            <div class="inputBox" >
-                <input id="date" type="date" ></input>
-            </div>
-
-
-            <div class="inputBox">
-                <button type="submit" id="send">Submit</button>
-            </div>
-        </form>
-    </div>
-
+    <!-- Firebase SDK -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <!-- Custom script for handling Firebase operations -->
     <script src="./mail.js"></script>
 </body>
-
 </html>
